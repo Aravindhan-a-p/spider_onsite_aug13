@@ -1,0 +1,29 @@
+version: '3'
+services:
+    mongo1:
+      build:
+          context: . 
+      expose:
+       - "27017"
+      volumes:
+        - mongo-data:/data/db
+
+    mongo2:
+      build:
+          context: . 
+      expose:
+        - "27017"
+      volumes:
+        - mongo-data:/data/db
+     
+    mongo-image:
+      build:
+          context: ./images
+      volumes:
+        - mongo-data:/data/db
+      depends_on:
+        - mongo1 
+        - mongo2
+
+volumes:
+  mongo-data:
