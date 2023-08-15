@@ -1,4 +1,4 @@
-#! /usr/bin/env python 3
+#! /usr/bin/env python3
 import socket
 import paramiko
 import threading
@@ -17,7 +17,7 @@ def client_handle(client):
     
 def main():
     server=socket.socket(socket.AF_INET , socket.SOCK_STREAM)
-    server.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,-1)
+    server.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
     server.bind(('',22))
     server.listen()
 
